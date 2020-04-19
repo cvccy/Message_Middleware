@@ -41,7 +41,7 @@ public class RabbitmqProducter {
              * 那么该交换机就会去根据routing_key查找对应的queueName 然后发送的该队列上.
              *
              */
-            channel.basicPublish("","tuling-queue-01",null,message.getBytes());
+            channel.basicPublish("","cvccy-queue-01",null,message.getBytes());
         }
 
         //6:关闭连接
