@@ -1,19 +1,15 @@
-package com.cvccy.direct_exchange;
+package com.cvccy.message;
 
 import com.cvccy.util.MyConsumer;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-/**
- * Create by cvccy on 2020/04/19
- */
-public class DirectExchangeConsumer {
 
+public class RabbitmqMessageConsumer {
+    public static void main(String[] args) throws IOException, TimeoutException {
 
-    public static void main(String[] args) throws IOException,InterruptedException, TimeoutException {
-
-        //1.创建连接工厂
+        //创建连接工厂
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("cvccy.com");
         connectionFactory.setPort(5672);
@@ -21,16 +17,16 @@ public class DirectExchangeConsumer {
         connectionFactory.setUsername("cvccy");
         connectionFactory.setPassword("kdfj&*^fhew");
 
-        //2.创建连接
+        //创建连接
         Connection connection = connectionFactory.newConnection();
 
-        //3.创建channel
+        //创建channel
         Channel channel = connection.createChannel();
 
         String exchangeName = "cvccy.directchange";
         String exchangeType = "direct";
         String queueName = "cvccy.directqueue";
-        String routingKey = "cvccy.directchange.key1024";
+        String routingKey = "cvccy.directchange.key";
         /**
          * 声明一个交换机
          * exchange:交换机的名称
@@ -44,29 +40,20 @@ public class DirectExchangeConsumer {
 
         /**
          * 声明一个队列
-         * durable:表示rabbitmq关闭删除队列
-         * autodelete:表示没有程序和队列建立连接 那么就会自动删除队列
-         *
          */
         channel.queueDeclare(queueName,true,false,false,null);
 
-        /**
-         * 队里和交换机绑定
-         */
         channel.queueBind(queueName,exchangeName,routingKey);
 
-
-        /**
-         * 开始消费
-         */
         channel.basicConsume(queueName,true, new DefaultConsumer(channel){
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 System.out.println("-----------consume message----------");
+
                 System.out.println("body: " + new String(body));
             }
         });
 
-
     }
+
 }
