@@ -6,7 +6,11 @@
 
     <groupId>com.cvccy</groupId>
     <artifactId>Message_Middleware</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>rabbitmq-advancedfeature</module>
+    </modules>
 
 
 </project>

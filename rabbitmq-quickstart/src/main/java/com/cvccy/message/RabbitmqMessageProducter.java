@@ -20,7 +20,7 @@ public class RabbitmqMessageProducter {
         connectionFactory.setPort(5672);
         connectionFactory.setVirtualHost("cvccy");
         connectionFactory.setUsername("cvccy");
-        connectionFactory.setPassword("kdfj&*^fhew");
+        connectionFactory.setPassword("********");
 
         //创建连接
         Connection connection = connectionFactory.newConnection();

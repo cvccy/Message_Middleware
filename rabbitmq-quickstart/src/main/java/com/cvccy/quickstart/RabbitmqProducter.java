@@ -21,7 +21,7 @@ public class RabbitmqProducter {
         connectionFactory.setPort(5672);
         connectionFactory.setVirtualHost("cvccy");
         connectionFactory.setUsername("cvccy");
-        connectionFactory.setPassword("kdfj&*^fhew");
+        connectionFactory.setPassword("********");
 
         //3:通过连接工厂创建连接对象
         Connection connection = connectionFactory.newConnection();
