@@ -15,7 +15,7 @@ public class CvccyConfirmListener implements ConfirmListener {
     @Override
     public void handleAck(long deliveryTag, boolean multiple) throws IOException {
 
-        System.out.println("当前时间:"+System.currentTimeMillis()+"TulingConfirmListener handleAck:"+deliveryTag);
+        System.out.println("当前时间:"+System.currentTimeMillis()+"CvccyConfirmListener handleAck:"+deliveryTag);
     }
 
     /**
@@ -26,7 +26,7 @@ public class CvccyConfirmListener implements ConfirmListener {
      */
     @Override
     public void handleNack(long deliveryTag, boolean multiple) throws IOException {
-        System.out.println("TulingConfirmListener handleNack:"+deliveryTag);
+        System.out.println("CvccyConfirmListener handleNack:"+deliveryTag);
 
     }
 }
