@@ -17,7 +17,7 @@ public class ConfirmRabbitmqConsumer {
         connectionFactory.setPort(5672);
         connectionFactory.setVirtualHost("cvccy");
         connectionFactory.setUsername("cvccy");
-        connectionFactory.setPassword("kdfj&*^fhew");
+        connectionFactory.setPassword("********");
         connectionFactory.setConnectionTimeout(100000);
 
         Connection connection = connectionFactory.newConnection();

@@ -6,7 +6,6 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
 import java.io.IOException;
-import java.sql.Time;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +19,7 @@ public class ConfirmRabbitmqProducer {
         connectionFactory.setPort(5672);
         connectionFactory.setVirtualHost("cvccy");
         connectionFactory.setUsername("cvccy");
-        connectionFactory.setPassword("kdfj&*^fhew");
+        connectionFactory.setPassword("********");
         connectionFactory.setConnectionTimeout(100000);
 
 
@@ -34,8 +33,8 @@ public class ConfirmRabbitmqProducer {
         String routingKey = "cvccy.confirm.key";
 
         Map<String,Object> cvccyInfo = new HashMap<>();
-        cvccyInfo.put("company","tuling");
-        cvccyInfo.put("location","长沙");
+        cvccyInfo.put("company","cvccy");
+        cvccyInfo.put("location","baijing");
 
         AMQP.BasicProperties basicProperties = new AMQP.BasicProperties().builder()
                 .deliveryMode(2)
@@ -56,5 +55,9 @@ public class ConfirmRabbitmqProducer {
         /**
          * 注意:在这里千万不能调用channel.close不然 消费就不能接受确认了
          */
+
+
+
+
     }
 }
